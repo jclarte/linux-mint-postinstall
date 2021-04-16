@@ -16,10 +16,10 @@ alias gl='git log --graph --oneline --decorate --all'
 alias act='source venv/bin/activate'
 EOT
 
-INSTALLED=`cat ~/.bashrc | grep bash_aliases_linux_mint_postinstall.sh | wc -l`
+INSTALLED=`cat ~/.zshrc | grep bash_aliases_linux_mint_postinstall.sh | wc -l`
 if [ "$INSTALLED" = "0" ]
 then
-    echo ""                                                         >> ~/.bashrc
-    echo "# https://github.com/vpoulailleau/linux-mint-postinstall" >> ~/.bashrc
-    echo "source ~/.bash_aliases_linux_mint_postinstall.sh"         >> ~/.bashrc
+    echo ""                                                         >> ~/.zshrc
+    echo "# https://github.com/jclarte/linux-mint-postinstall"      >> ~/.zshrc
+    echo "source ~/.bash_aliases_linux_mint_postinstall.sh"         >> ~/.zshrc
 fi

@@ -1,22 +1,18 @@
 #!/bin/bash
 
-# first install Python, to get pip
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-eval "$DIR/python.sh"
-
 sudo apt install -y fonts-powerline
 pip3 install powerline-shell
 
-INSTALLED=`cat ~/.bashrc | grep "powerline-shell" | wc -l`
+INSTALLED=`cat ~/.zshrc | grep "powerline-shell" | wc -l`
 if [ "$INSTALLED" = "0" ]
 then
-    echo ""                                                                  >> ~/.bashrc
-    echo "# https://github.com/vpoulailleau/linux-mint-postinstall"          >> ~/.bashrc
-    echo 'function _update_ps1() {'                                          >> ~/.bashrc
-    echo '    PS1=$(powerline-shell $?)'                                     >> ~/.bashrc
-    echo '}'                                                                 >> ~/.bashrc
-    echo ''                                                                  >> ~/.bashrc
-    echo 'if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then' >> ~/.bashrc
-    echo '    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"'                 >> ~/.bashrc
-    echo 'fi'                                                                >> ~/.bashrc
+    echo ""                                                                  >> ~/.zshrc
+    echo "# https://github.com/jclarte/linux-mint-postinstall"               >> ~/.zshrc
+    echo 'function _update_ps1() {'                                          >> ~/.zshrc
+    echo '    PS1=$(powerline-shell $?)'                                     >> ~/.zshrc
+    echo '}'                                                                 >> ~/.zshrc
+    echo ''                                                                  >> ~/.zshrc
+    echo 'if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then' >> ~/.zshrc
+    echo '    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"'                 >> ~/.zshrc
+    echo 'fi'                                                                >> ~/.zshrc
 fi

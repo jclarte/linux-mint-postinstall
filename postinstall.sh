@@ -7,12 +7,31 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y --fix-broken
 
+sudo apt install -y zsh
+chsh -s $(which zsh)
+
 sudo apt install -y software-properties-common checkinstall wget curl gpg
 sudo apt install -y build-essential libssl-dev gcc automake screen zlib1g-dev libjpeg-dev
 sudo apt install -y filezilla
 sudo apt install -y synaptic
 sudo apt install -y xvfb
 sudo apt install -y gwenview
+sddo apt install -y terminator
+sddo apt install -y weechat
+sudo apt install -y texlive-full texlive-latex-extra dvipng
+
+########################################
+# install printer
+chmod u+x bin/*
+for BIN in bin/*
+do
+    echo ""
+    echo "###########################################"
+    echo "#   $BIN"
+    echo "###########################################"
+    echo ""
+    eval $BIN
+########################################
 
 ########################################
 # Execute sub scripts
@@ -28,14 +47,14 @@ do
     PROGRAM_NAME=`basename $SCRIPT`
     PROGRAM_NAME=${PROGRAM_NAME%.*}
     read -p "Do you want to install ${PROGRAM_NAME}? " choice
-    case "$choice" in 
+    case "$choice" in
         [yY][eE][sS]|[yY] )
             eval $SCRIPT
             ;;
         [nN][oO]|[nN] )
             echo "skip installation of ${PROGRAM_NAME}"
             ;;
-        * ) 
+        * )
             echo "invalid answer"
             ;;
     esac
